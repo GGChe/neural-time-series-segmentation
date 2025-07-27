@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Tue Jan 27 21:34:37 2026
+[*]
+[dumpfile] "/home/darthlamprey/my_designs/neural-time-series-segmentation/detectors.vcd"
+[dumpfile_mtime] "Tue Jan 27 21:33:45 2026"
+[dumpfile_size] 7574186
+[savefile] "/home/darthlamprey/my_designs/neural-time-series-segmentation/tb/verilog/wave.gtkw"
+[timestart] 0
+[size] 2502 1361
+[pos] -27 -24
+*-25.208162 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 278
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 422
+@10022
+detectors_tb.data_in[15:0]
+@20001
+-
+@20000
+-
+-
+@28
+detectors_tb.spike_ado
+detectors_tb.spike_aso
+detectors_tb.spike_ed
+detectors_tb.spike_neo
+@20000
+-
+[pattern_trace] 1
+[pattern_trace] 0
