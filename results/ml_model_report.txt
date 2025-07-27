@@ -1,0 +1,24 @@
+Decision Tree Model accuracy: 0.88
+Random Forest Model accuracy: 0.89
+Best Params for Decision Tree: {'max_depth': 3, 'min_samples_leaf': 4, 'min_samples_split': 10}
+Best Accuracy from Grid Search (Decision Tree): 0.90
+
+Feature Importances for Decision Tree:
+SNR: 0.0457
+RMS: 0.0334
+Kurtosis: 0.0249
+Skewness: 0.3082
+MAD: 0.3259
+Peak-to-Peak: 0.0987
+Entropy: 0.1632
+PSD: 0.0000
+
+Feature Importances for Random Forest:
+SNR: 0.1030
+RMS: 0.1077
+Kurtosis: 0.1502
+Skewness: 0.1866
+MAD: 0.0862
+Peak-to-Peak: 0.1325
+Entropy: 0.1243
+PSD: 0.1095
