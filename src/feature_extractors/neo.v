@@ -48,7 +48,7 @@ module neo (
 
                     neo_val <= diff_result[15:0]; // Resize
 
-                    if (neo_val > threshold)
+                    if ($signed({{4{neo_val[15]}}, neo_val}) > threshold)
                         spike_detected <= 1'b1;
                     else
                         spike_detected <= 1'b0;

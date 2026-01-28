@@ -62,7 +62,7 @@ module classify_event_unit (
                 last_event_sample_count <= sample_count;
                 last_peak_sample_count <= sample_count;
             end else begin
-                k = sample_count - last_peak_sample_count; // Blocking assignment for immediate use? VHDL uses signal `k`.
+                // k update handled by non-blocking assignment below
                 // In VHDL logic:
                 // k <= sample_count - last_peak_sample_count;
                 // if k >= DECAY_STEP_PERIOD (this uses OLD k)

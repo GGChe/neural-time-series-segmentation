@@ -15,6 +15,8 @@ module ed (
     reg signed [31:0] squared_diff;
     reg signed [31:0] threshold;
     
+    wire signed [31:0] diff = $signed({{16{input_buffer[0][15]}}, input_buffer[0]}) - $signed({{16{input_buffer[k_delay][15]}}, input_buffer[k_delay]});
+    
     integer i;
 
     always @(posedge clk or posedge rst) begin
@@ -40,7 +42,7 @@ module ed (
                 end
 
                 OPERATION: begin
-                    squared_diff <= (input_buffer[0] - input_buffer[k_delay]) * (input_buffer[0] - input_buffer[k_delay]);
+                    squared_diff <= diff * diff;
 
                     if (squared_diff > threshold)
                         spike_detected <= 1'b1;

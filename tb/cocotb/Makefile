@@ -1,5 +1,7 @@
-SIM ?= icarus
+SIM ?= verilator
 TOPLEVEL_LANG ?= verilog
+
+EXTRA_ARGS += --trace --trace-fst --trace-structs
 
 PWD=$(shell pwd)
 PROJ_DIR=$(PWD)/../..
