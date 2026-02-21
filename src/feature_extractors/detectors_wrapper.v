@@ -36,5 +36,11 @@ module detectors_wrapper (
         .spike_detected(spike_ed)
     );
     
+    `ifdef COCOTB_SIM
+    initial begin
+        $dumpfile ("dump.fst");
+        $dumpvars (0, detectors_wrapper);
+    end
+    `endif
 
 endmodule

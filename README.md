@@ -38,26 +38,43 @@ The project supports both standard Verilog simulation (using Icarus Verilog or V
 *   Cocotb (`pip install cocotb`)
 *   GTKWave (for waveform viewing)
 
+### Setup Python Environment
+
+Ensure you have Poetry installed. Then, run the following in the project root:
+
+```bash
+# Install dependencies into a virtual environment
+make setup
+
+# Activate the virtual environment
+poetry shell
+```
+
 ### Running Verilog Tests
 To run the standard Verilog testbenches:
 ```bash
-make test-verilog
+# Run simulation and generate waveforms
+make test-rtl
+
+# View RTL testbench waveforms
+make view-rtl
 ```
-This compilation flow uses `iverilog` to build the design and testbench, executes the simulation, and generates `dump.vcd` for analysis.
 
 ### Running Cocotb Tests
 To run the advanced verification suite using Cocotb:
 ```bash
+# Run functional tests with Python
 make test-cocotb
-```
-This runs the Python-based tests defined in `tb/cocotb/`, verifying functionality against complex test vectors.
 
-### Viewing Waveforms
-After a simulation run, you can view the generated waveforms using:
-```bash
-gtkwave dump.vcd
+# View Cocotb waveforms
+make view-cocotb
 ```
-*Note: The project includes GTKWave save files or scripts in `tcl_scripts/` to help set up the signal view.*
+
+### Running the Classifier Test
+To run the classifier specific Verilog testbench:
+```bash
+make test-classifier
+```
 
 ## ASIC Implementation (Librelane)
 
@@ -68,18 +85,24 @@ This project is configured for the **Librelane** automated RTL-to-GDSII flow, ta
 *   SkyWater 130nm PDK.
 
 ### Running the Flow
-To harden the design (Synthesis, P&R, Signoff), run the following command from the `librelane` directory:
+To harden the design (Synthesis, P&R, Signoff), run the following command from the project directory:
 
 ```bash
-cd librelane
-librelane flow --design ./ --config config.json --run-tag <run_name>
+# Run full ASIC flow
+make librelane
 ```
-*   `--design ./`: Specifies the current directory as the design source.
-*   `--config config.json`: Uses the project's specific configuration.
-*   `--run-tag`: Optional label for the run (e.g., `run1`, `test_opt`).
+
+To visualize the final layout in OpenROAD:
+
+```bash
+# Open the synthesized design in OpenROAD GUI
+make view-openroad
+```
+The result of the synthesis is available in the image below.
+![alt text](resources/asic_layout.png)
 
 ### Output
-Results are generated in `librelane/runs/<run_tag>/`. Key outputs include:
+Results are generated in `librelane/runs/RUN_<timestamp>/`. Key outputs include:
 *   `gds/`: Final layout file.
 *   `reports/`: Timing, area, and power reports.
 *   `results/`: Final netlists and DEF files.
